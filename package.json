@@ -4,8 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "kustomer": "nodemon kustomer.js",
-    "sb-webhooks": "nodemon sb-webhooks.js"
   },
   "keywords": [],
   "author": "",
