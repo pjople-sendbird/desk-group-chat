@@ -115,23 +115,22 @@ function addChannelHandler() {
  * Append a message to the list on screen
  */
 function appendSingleMessage(message) {
-     if (message._sender) {
-        const today = new Date().toLocaleDateString();
-        const messageDate = new Date( message.createdAt ).toLocaleDateString();
-        const out = `
-        <div class="card mb-3">
-            <div class="card-header d-flex justify-content-between">
-                <small>Sent by: ${ message._sender.userId }</small> 
-                <small>
-                    ${ today != messageDate ? messageDate + ' - ' : '' }
-                    ${ new Date( message.createdAt ).toLocaleTimeString() }
-                </small>
-            </div>
-            <div class="card-body">${ message.message }</div>
-        </div>`;
-        const currentContent = document.getElementById('messagesContainer').innerHTML;
-        document.getElementById('messagesContainer').innerHTML = out + currentContent;    
-    }
+    var sender = message._sender ? message._sender.userId : 'Desk Agent';
+    const today = new Date().toLocaleDateString();
+    const messageDate = new Date( message.createdAt ).toLocaleDateString();
+    const out = `
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <small>Sent by: ${ sender }</small> 
+            <small>
+                ${ today != messageDate ? messageDate + ' - ' : '' }
+                ${ new Date( message.createdAt ).toLocaleTimeString() }
+            </small>
+        </div>
+        <div class="card-body">${ message.message }</div>
+    </div>`;
+    const currentContent = document.getElementById('messagesContainer').innerHTML;
+    document.getElementById('messagesContainer').innerHTML = out + currentContent;    
 }
 
 
